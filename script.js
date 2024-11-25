@@ -1,25 +1,15 @@
-const buttonToggle = document.querySelector('.btn')
-const closeButton = document.querySelector('.btn-a')
+const buttonToggle = document.getElementById('btn')
+const lampSpenta = document.getElementById('lamp')
+let isTurnOn = false
 
 buttonToggle.addEventListener('click', () => {
-  const buttonSpento = document.querySelector('.btn')
-  buttonSpento.classList.add('active')
-})
-
-closeButton.addEventListener('click', () => {
-  const buttonSpento = document.querySelector('.btn')
-  buttonSpento.classList.remove('active')
-})
-
-const lampSpenta = document.querySelector('.lamp-spenta')
-const spegniLamp = document.querySelector('.lamp-accesa')
-
-lampSpenta.addEventListener('click', () => {
-  const spentaLamp = document.querySelector('.lamp-spenta')
-  lampSpenta.classList.add('active')
-})
-
-spegniLamp.addEventListener('click', () => {
-  const lampSpegni = document.querySelector('.lamp-accesa')
-  spegniLamp.classList.add('active')
-})
+  buttonToggle.classList.add('active')
+  isTurnOn = ! isTurnOn
+  if(isTurnOn){
+    lampSpenta.src = 'img/yellow_lamp.png'
+    buttonToggle.innerText = 'Spegni la lampadina'
+  } else{
+    lampSpenta.src = 'img/white_lamp.png'
+    buttonToggle.innerText = 'Accendi la lampadina'
+  }
+} ) 
